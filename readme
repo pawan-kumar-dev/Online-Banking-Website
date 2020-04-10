@@ -1,0 +1,6 @@
+Here is the Online Banking Website developed in the JSP a Java based technology.
+This Banking System allows the customers to create a new saving or current account, 
+the customers can perform normal transactions and also update thier personal details.
+The whole system is supported with the MYSQL database server to handle all the customer 
+transactions.
+
