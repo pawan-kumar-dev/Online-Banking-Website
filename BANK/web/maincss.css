@@ -1,0 +1,37 @@
+ body{background-color: lightcyan;width: 100%;margin: 0;}
+.topnav{width: 100%;text-align: center;padding-bottom: 15px;
+font-size: 15px;background-color:azure;margin-left: auto;
+margin-right: auto;height: 100px;position:sticky;
+top:0;z-index: 0;}
+.dropdown {position: relative;display: inline-block;float: right;}
+.content {background-color: white;display: none;
+position: absolute;min-width: 160px;right: 0;}
+.dropdown:hover .content {display: block;}
+.btd{ background-color:white;padding-left: auto;
+padding-right: auto;padding-bottom: 0;
+padding-top: 0;font-size: 15px;
+color:black;border-style: none;
+cursor: pointer;outline: none;text-align: center;}
+.bt:hover{
+border-bottom-style: solid;}
+.bt{color: black;padding: 12px 16px;
+text-decoration: none;display:block;}
+ form{border: 2px;height: 400px;
+width: 400px;padding: 25px;
+ background-color: white;margin-right: auto;margin-left: auto;}
+ .t1{font-size: 15px;padding-bottom: 12px;
+margin-bottom: 30px;border:1px solid; 
+width: 400px;padding-top: 20px;
+border-top-style: none; border-left-style: none; border-right-style: none;
+ outline: none;}
+#button,button,.button{
+background-color:blue;padding:10px 10px 10px 10px;
+font-size: 18px;color:white;
+border-style: none;cursor: pointer;
+outline: none;text-align: center;
+border-radius: 15px;}
+ details{outline-style:ridge;width: 95%;
+margin-left: 20px;margin-right: 20px;}
+summary{font-size: 20px;outline: none;
+margin-left: auto;margin-right: auto;}
+summary:hover{cursor: pointer;}

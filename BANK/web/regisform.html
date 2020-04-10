@@ -1,0 +1,122 @@
+<html><head>
+        <title>REGISTER USER</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="maincss.css" rel="stylesheet"/>
+    </head><body>
+        <style>
+            form{border: 2px;height: 1000px;
+width: 500px;padding: 25px;
+background-color: white;margin-left: auto;float: left;}
+               body{background-image: url(moneytower.jpg);
+background-repeat: no-repeat;background-size:cover;
+height: 100%;width: 100%;}
+        </style> <div  class="topnav">
+         <div id="topnav1" style="float:left;"><a href="index.html"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></a></div>
+         <div id="topnav1" style="float:left; padding-left: 100px;"><h1><b><u>REGISTER HERE TO CREATE<br> A NEW ACCOUNT</u></b></h1></div></div>
+        <div><form id="register" name="reg" method="post">
+            <table align="center">
+                <tr>
+                    <td><b><input type="text" name="name" onblur="namechk()" class="t1" placeholder="FULLNAME *" required/></b></td>
+                </tr><tr>
+                    <td><b><div id="dname"></div></b></td>
+                    </tr><tr>
+                        <td><b><textarea name="add" cols="21" rows="4" class="t1" placeholder="ADDRESS *" onblur="addchk()" required></textarea></b></td>
+                </tr> <tr>
+                     <td><b><div id="dadd"></div></b></td>
+                </tr><tr>
+                    <td><b><input type="number" min="1111111111" max="9999999999" name="num" onblur="numchk()" class="t1" placeholder="PHONE NUMBER *" required/></b></td>
+                </tr><tr>
+                     <td><b><div id="dphone"></div></b></td>
+                </tr><tr>
+                    <td><b><input type="number" name="pincode" onblur="pinchk()" class="t1" placeholder="PINCODE *" required/></b></td>
+                </tr><tr>
+                     <td><b><div id="pin"></div></b></td>
+                    </tr><tr>
+                        <td><b><input type="email" name="mail" onblur="Emailchk()" class="t1" placeholder="EMAIL ADDRESS *" required/></b></td>
+                    </tr> <tr>
+                        <td><b><div id="demail"></div></b></td>
+                    </tr><tr>
+                        <td><b><input type="password" name="pass" onblur="passlen()" class="t1" placeholder="PASSWORD *" required/></b></td>
+                </tr><tr>
+                    <td><b><div id="plen"></div></b></td>
+                </tr><tr>
+                    <td><b><input type="password" name="cpass" onblur="conpass()" class="t1" placeholder="CONFIRM PASSWORD *" required/></b></td>
+                </tr><tr>
+                    <td><b><div id="dconpass"></div></b></td>
+                    </tr>
+                    <tr><td>ACCOUNT TYPE : *  
+                        <b><input type="radio" name="type" value="1"/>Saving
+                            &nbsp;&nbsp;
+                            <input type="radio" name="type" value="2"/>Current</b><br><br></td>
+                </tr><tr><td>
+                        <input type="number" name="money" min="8000" max="15000" class="t1" placeholder="ENTER THE AMOUNT BETWEEN 8000 or 15000 *" required/>
+                       </td>
+                </tr><tr><td><b><div id="damount"></div></b></td></tr><tr>
+                    <td><center><button name="submit" onclick="beforeSubmit()" formaction="register.jsp">Register</button><br><br>
+                    <button  name="reset" onclick="clear()" formaction="regisform.html">Clear</button></center></td>
+                </tr><tr>
+                    <b>NOTE : Please make sure your details are correct<br>
+                    before submitting the form and all the fields marked with * is <br>
+                    complete....</b></tr></table></form></div>
+        <script language="javascript">
+           function namechk(){
+               if(reg.name.value.length==0){
+                   document.getElementById("dname").innerHTML="Name Cannot be Empty";
+                   reg.name.value="";
+                   reg.name.focus();}
+           else{document.getElementById("dname").innerHTML="";}}
+       function addchk(){
+               if(reg.add.value.length==0){
+                   document.getElementById("dadd").innerHTML="Address Cannot be Empty";
+                   reg.add.value="";
+                   reg.add.focus();}
+           else{document.getElementById("dadd").innerHTML="";}}
+   function numchk(){
+       if(!reg.num.value.match(/^[1-9]{1}[0-9]{9}$/)){
+            document.getElementById("dphone").innerHTML="Invalid Phone Number";
+            reg.num.value="";
+            reg.num.focus();}
+           else{document.getElementById("dphone").innerHTML="";}}
+      function pinchk(){
+          if(!reg.pincode.value.match(/^\d{6}$/)){
+              document.getElementById("pin").innerHTML="Pincode should be of 6 digit."; 
+              reg.pincode.value="";
+              reg.pincode.focus();}
+          else{document.getElementById("pin").innerHTML="";}}
+      function passlen(){
+          if(reg.pass.value.length<8){
+              document.getElementById("plen").innerHTML="Password Should be of 8 character";
+              reg.pass.focus();}
+          else{document.getElementById("plen").innerHTML=""; }}
+      function conpass(){
+          if(reg.pass.value!=reg.cpass.value){
+              document.getElementById("dconpass").innerHTML="Password MisMatched";
+              reg.cpass.value=""; }
+          else{document.getElementById("dconpass").innerHTML="";}}
+      function clear(){
+          reg.name.value="";
+          reg.add.value="";
+          reg.num.value="";
+          reg.uid.value="";
+          reg.pass.value="";
+          reg.pincode.value="";
+          reg.mail.value="";
+          reg.cpass.value="";
+          reg.money.value="";
+          reg.type.value="";}
+      function beforeSubmit(){
+          if(reg.name.value.length==0||reg.add.value.length==0||reg.num.value.length==0||reg.uid.value.length==0||reg.pass.value.length==0||reg.cpass.value.length==0||reg.type.value.lenght==0||reg.pincode.value.length==0||reg.mail.value.lenght==0||reg.money.value.lenght==0){
+          alert("FIELDS CANNOT BE EMPTY");}}
+       function Emailchk(){
+           if(!reg.mail.value.match(/\S+@\S+\.com/)){
+               document.getElementById("demail").innerHTML="Invalid Email";
+               reg.mail.value="";
+                   reg.mail.focus();}
+           else{document.getElementById("demail").innerHTML="";}}
+           </script><br><br>
+            <div style="width: 100%;"><table><tr><td style="width:500px;">
+                <center><a href="loginform.html"><button class="button" name="button"><span>LOGIN HERE</span></button></a></center></td></tr>
+<tr><td style="width:500px;"><br><br><br><br>
+                     <center><a href="about.html"><button class="button" name="button"><span>ABOUT US</span></button></a></center></td>
+            </tr></table></div></body></html>

@@ -1,0 +1,89 @@
+<html><head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="maincss.css" rel="stylesheet"/></head>
+    <body><div  class="topnav">
+         <div style="float:left;"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></div>
+         <div style="float:left;padding-top: 50px; padding-left: 100px;"><h1><b><u>UPDATE YOUR DETAILS</u></b></h1></div>
+        <div class="dropdown" style="padding-top: 50px;"><img src="navi.svg" alt="Navigation" style="height:50px; width: 80px; cursor: pointer;"/>
+         <div class="content">
+            <a href="welcome.jsp" class="bt"><button class="btd">HOME</button></a>
+             <a href="aadhar.html" class="bt"><button class="btd">AADHAR<br>UPDATE</button></a>
+             <a href="cheque.jsp" class="bt"><button class="btd">CHEQUE<br>REQUEST</button></a>
+             <a href="contact.html" class="bt"><button class="btd">CONTACT US</button></a>
+              <a href="personalloan.html" class="bt"><button class="btd">APPLY FOR<br>PERSONAL LOAN</button></a>
+             <a href="transfer.html" class="bt"><button class="btd">TRANSFER<br>AMOUNT</button></a>
+             <a href="transactionhistory.jsp" class="bt"><button class="btd">VIEW<br>TRANSACTION<br>HISTORY</button></a>
+            <a href="logout.jsp" class="bt"><button class="btd">LOGOUT</button></a>
+         </div></div></div><br><br><br><br>
+         <div><form name="up" method="post" style="height:700px;">
+            <table align="center"><tr>
+                    <td><b><input type="number" min="1111111111" max="9999999999" name="num" onblur="numchk()" class="t1" placeholder="PHONE NUMBER *"/></b></td>
+                </tr><tr>
+                     <td><b><div id="dphone"></div></b></td>
+                </tr><tr>
+                    <td><b><textarea name="add" cols="21" rows="4" class="t1" placeholder="ADDRESS *" onblur="addchk()"></textarea></b></td>
+                </tr><tr>
+                     <td><b><div id="dadd"></div></b></td>
+                </tr><tr>
+                    <td><b><input type="number" name="pincode" onblur="pinchk()" class="t1" placeholder="ZIPCODE *"/></b></td>
+                </tr><tr>
+                     <td><b><div id="pin"></div></b></td>
+                    </tr><tr>
+                        <td><b><input type="email" name="mail" onblur="Emailchk()" class="t1" placeholder="EMAIL ADDRESS *"/></b></td>
+                    </tr><tr>
+                        <td><b><div id="demail"></div></b></td>
+                    </tr><tr>
+                       <td>
+                           <input type="number" name="aadhar" min="111111111111" max="999999999999" class="t1" placeholder="ENTER YOUR AADHAR NUMBER *" onblur="Aadharchk()"/>
+                       </td></tr>
+                <tr><td><b><div id="daadhar"></div></b></td>
+                </tr><tr>
+                    <td><center><button id="formbutton" name="submit" onclick="beforeSubmit()" formaction="updatejsp.jsp">Update Details</button><br><br>
+                    <button id="formbutton" name="reset" onclick="clear()" formaction="update.html">Clear</button></center></td>
+                </tr><tr>
+                    <b>NOTE : Please make sure your details are correct<br>
+                    before submitting the form and all the fields marked with * is <br>
+                    complete....</b></tr></table></form>
+</div><script language="Javascript">
+       function addchk(){
+               if(up.add.value.length==0){
+                   document.getElementById("dadd").innerHTML="Address Cannot be Empty";
+                   up.add.value="";
+                   up.add.focus();}
+           else{document.getElementById("dadd").innerHTML="";}}
+   function numchk(){
+       if(!up.num.value.match(/^[1-9]{1}[0-9]{9}$/)){
+            document.getElementById("dphone").innerHTML="Invalid Phone Number";
+            up.num.value="";
+            up.num.focus();}
+           else{document.getElementById("dphone").innerHTML="";}}
+      function pinchk(){
+          if(!up.pincode.value.match(/^\d{6}$/)){
+              document.getElementById("pin").innerHTML="Pincode should be of 6 digit."; 
+              up.pincode.value="";
+              up.pincode.focus();}
+          else{document.getElementById("pin").innerHTML="";}}
+      function clear(){
+          up.add.value="";
+          up.num.value="";
+          up.pincode.value="";
+          up.mail.value="";
+          up.aadhar.value="";}
+      function beforeSubmit(){
+          if(up.add.value.length==0||up.num.value.length==0||up.pincode.value.length==0||up.mail.value.length==0||up.aadhar.value.length==0){
+          alert("FIELDS CANNOT BE EMPTY");}}
+       function Emailchk(){
+           if(!up.mail.value.match(/\S+@\S+\.com/)){
+               document.getElementById("demail").innerHTML="Invalid Email";
+               up.mail.value="";
+                   up.mail.focus();}
+           else{document.getElementById("demail").innerHTML="";}}
+       function Aadharchk(){
+           if(!up.aadhar.value.match(/^\d{12}$/)){
+               document.getElementById("daadhar").innerHTML="Invalid Aadhar Number";
+               up.aadhar.value="";
+               up.aadhar.focus();}
+           else{document.getElementById("daadhar").innerHTML="";}}
+</script></body></html>

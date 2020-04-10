@@ -1,0 +1,37 @@
+<html><head>
+        <title>AADHAR UPDATE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="maincss.css" rel="stylesheet"/>
+    </head><body bgcolor="lightcyan">
+        <div  class="topnav">
+         <div style="float:left;"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></div>
+         <div style="float:left;padding-top: 50px; padding-left: 100px;"><h1><b><u>UPDATE YOUR AADHAR</u></b></h1></div>
+         <div class="dropdown" style="padding-top: 50px;"><img src="navi.svg" alt="Navigation" style="height:50px; width: 80px; cursor: pointer;"/>
+         <div class="content">
+             <a href="welcome.jsp" class="bt"><button class="btd">HOME</button></a>
+             <a href="cheque.jsp" class="bt"><button class="btd">CHEQUE<br>REQUEST</button></a>
+             <a href="contact.html" class="bt"><button class="btd">CONTACT US</button></a>
+             <a href="personalloan.html" class="bt"><button class="btd">APPLY FOR<br>PERSONAL LOAN</button></a>
+             <a href="transfer.html" class="bt"><button class="btd">TRANSFER<br>AMOUNT</button></a>
+             <a href="transactionhistory.jsp" class="bt"><button class="btd">VIEW<br>TRANSACTION<br>HISTORY</button></a>
+             <a href="update.html" class="bt"><button class="btd">UPDATE<br>DETAILS</button></a>
+             <a href="logout.jsp" class="bt"><button class="btd">LOGOUT</button></a>
+         </div></div></div><br><br>
+         <form name="aadhar" method="post" style="height:350px;">
+              <center><b><h4>AADHAR UPDATE</h4></b></center>
+              <table><tr><b><input type="number" min="111111111111" max="999999999999" name="aadharno" onblur="Aadharchk()" class="t1" placeholder="ENTER YOUR AADHAR NUMBER " required/><br><div id="daadhar"></div></b>
+            </tr>
+            <center><input type="submit" value="SUBMIT" id="button" onclick="beforeSubmit()" formaction="aadharupdate.jsp"/></center>
+<br><br><center><input type="reset" value="CLEAR" id="button" onclick="clear()" formaction="aadhar.html"/></center>
+</table></form><script language="javascript">
+             function Aadharchk(){
+           if(!aadhar.aadharno.value.match(/^\d{12}$/)){
+               document.getElementById("daadhar").innerHTML="Invalid Aadhar Number. ";
+               aadhar.aadharno.value="";
+               aadhar.aadharno.focus();}
+           else{document.getElementById("daadhar").innerHTML="";}}
+               function clear(){aadhar.aadharno.value="";}
+            function beforeSubmit(){
+          if(aadhar.aadharno.value.length==0){
+          alert("FIELDS CANNOT BE EMPTY");}}</script></body></html>

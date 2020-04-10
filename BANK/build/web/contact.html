@@ -1,0 +1,37 @@
+<html><head>
+        <title>CONTACT US</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="maincss.css" rel="stylesheet"/></head>
+    <body><div  class="topnav">
+         <div id="topnav1" style="float:left;"><a href="index.html"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></a></div>
+         <div id="topnav1" style="float:left; padding-top:50px; padding-left: 100px;"><h1><b><u>CONTACT US</u></b></h1></div>
+        <div class="dropdown" style=" padding-top: 50px;"><img src="navi.svg" alt="Navigation" style="height:50px; width: 80px; cursor: pointer;"/>
+         <div class="content">
+             <a href="welcome.jsp" class="bt"><button class="btd">HOME</button></a>
+             <a href="aadhar.html" class="bt"><button class="btd">AADHAR<br>UPDATE</button></a>
+             <a href="cheque.jsp" class="bt"><button class="btd">CHEQUE REQUEST</button></a>
+              <a href="personalloan.html" class="bt"><button class="btd">APPLY FOR<br>PERSONAL LOAN</button></a>
+             <a href="transfer.html" class="bt"><button class="btd">TRANSFER<br>AMOUNT</button></a>
+             <a href="transactionhistory.jsp" class="bt"><button class="btd">VIEW<br>TRANSACTION<br>HISTORY</button></a>
+             <a href="update.html" class="bt"><button class="btd">UPDATE<br>DETAILS</button></a>
+            <a href="logout.jsp" class="bt"><button class="btd">LOGOUT</button></a>
+         </div></div></div><br><br>
+        <form name="contact" method="post"><table><tr>
+                    <td><b><textarea rows="6" name="query" class="t1" onblur="feedchk()" placeholder="RAISE YOUR QUERY...." required></textarea></b></td>
+                </tr><tr>
+                    <td><b><div id="dq"></div></b></td></tr><tr>
+                    <td><center><input type="submit" name="submit" value="SUBMIT YOUR QUERY" onclick="beforeSubmit()" class="button" formaction="contactus.jsp"/><br><br>
+                    <input type="reset" name="reset" value="CLEAR" onclick="clear()" class="button"/></center></td>
+                </tr></table></form><script>
+            function feedchk(){
+                if(contact.query.value.length<=25){
+                    document.getElementById("dq").innerHTML="WRITE ATLEAST OF 25 CHARACTER";
+                    contact.query.value="";
+                    contact.query.focus();}
+                else{document.getElementById("dq").innerHTML="";}}
+             function clear(){contact.query.value="";}
+      function beforeSubmit(){
+          if(contact.query.value.length==0){
+              alert("FIELDS CANNOT BE EMPTY");}}
+</script></body></html>

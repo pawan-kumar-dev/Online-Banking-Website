@@ -1,0 +1,56 @@
+<html><head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="maincss.css" rel="stylesheet"/></head>
+    <body><div  class="topnav">
+         <div style="float:left;"><a href="index.html"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></a></div>
+         <div style="float:left;padding-top: 50px; padding-left: 100px;"><h1><b><u>Transfer Amount</u></b></h1></div>
+        <div class="dropdown" style="padding-top: 50px;"><img src="navi.svg" alt="Navigation" style="height:50px; width: 80px; cursor: pointer;"/>
+         <div class="content">
+              <a href="welcome.jsp" class="bt"><button class="btd">HOME</button></a>
+              <a href="aadhar.html" class="bt"><button class="btd">AADHAR<br>UPDATE</button></a>
+            <a href="cheque.jsp" class="bt"><button class="btd">CHEQUE<br>REQUEST</button></a>
+            <a href="contact.html" class="bt"><button class="btd">CONTACT US</button></a>
+            <a href="personalloan.html" class="bt"><button class="btd">APPLY FOR<br>LOAN</button></a>
+            <a href="transactionhistory.jsp" class="bt"><button class="btd">VIEW<br>TRANSACTION<br>HISTORY</button></a>
+             <a href="update.html" class="bt"><button class="btd">UPDATE<br>DETAILS</button></a>
+            <a href="logout.jsp" class="bt"><button class="btd">LOGOUT</button></a>
+         </div></div></div><br><br><br><br>
+        <form name="trans" method="post"><table><tr>
+                <b><input type="text" name="toacc" onblur="accChk()" class="t1" placeholder="ENTER ACCOUNT NUMBER.. " required/><br><div id="dtoacc"></div></b>
+            </tr><tr>
+            <b><input type="text" name="contoacc" onblur="contochk()" class="t1" placeholder="CONFIRM ACCOUNT NUMBER.. " required/><br><div id="dcontoacc"></div></b>
+</tr><tr>
+        <b><input type="number" min="1" autocomplete="off" name="amount" class="t1" placeholder="ENTER THE AMOUNT.. " onblur="chkamt()" required/><br><div id="damount"></div></b></tr>
+            <center><input type="submit" value="SEND" id="button" onclick="beforeSubmit()" formaction="transferjsp.jsp"/></center>
+                <br><br>
+                <center><input type="reset" value="CLEAR" id="button" onclick="clear()" formaction="transfer.html"/></center>
+            </table></form>
+        <script language="javascript">
+            function accChk(){
+                if(!trans.toacc.value.match(/^\d{15}$/)){
+                    document.getElementById("dtoacc").innerHTML="Account no is of 15 digits";
+                   trans.toacc.value="";
+                   trans.toacc.focus();}
+                else{document.getElementById("dtoacc").innerHTML="";}}
+          function contochk(){
+                if(trans.toacc.value!=trans.contoacc.value){
+                    document.getElementById("dcontoacc").innerHTML="Account no mismatched";
+                    trans.contoacc.value="";
+                    trans.contoacc.focus();}
+                else{document.getElementById("dcontoacc").innerHTML="";}}
+            function chkamt(){
+                if(trans.amount.value<=0){
+                    document.getElementById("damount").innerHTML="Invalid Amount Entered";
+                    trans.amount.value="";
+                    trans.amount.focus();}
+                else{document.getElementById("damount").innerHTML="";}}
+            function clear(){
+                trans.toacc.value="";
+                trans.contoacc.value="";
+                trans.amount.value="";}
+            function beforeSubmit(){
+          if(trans.toacc.value.length==0||trans.contoacc.value.length==0||trans.amount.value.lenght==0){
+          alert("FIELDS CANNOT BE EMPTY");}}
+    </script></body></html>

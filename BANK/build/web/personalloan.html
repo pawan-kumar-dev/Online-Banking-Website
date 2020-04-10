@@ -1,0 +1,55 @@
+<html><head>
+        <title>APPLY FOR LOAN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="maincss.css" rel="stylesheet"/>
+</head><body>
+       <div  class="topnav">
+         <div style="float:left;"><img src="banklo.png" style="height: 100px; width: 300px; padding-top: 10px; padding-left: 10px;" alt="TransaQ BANK"/></div>
+         <div style="float:left;padding-top: 50px; padding-left: 20px;"><h1><b><u>WELCOME TO TransaQ BANK</u></b></h1></div>
+         <div class="dropdown" style="padding-top: 50px;"><img src="navi.svg" alt="Navigation" style="height:50px; width: 80px; cursor: pointer;"/>
+         <div class="content">
+             <a href="welcome.jsp" class="bt"><button class="btd">HOME</button></a>
+            <a href="aadhar.html" class="bt"><button class="btd">AADHAR<br>UPDATE</button></a>
+            <a href="contact.html" class="bt"><button class="btd">CONTACT US</button></a>
+             <a href="cheque.jsp" class="bt"><button class="btd">CHEQUE<br>REQUEST</button></a>
+             <a href="transfer.html" class="bt"><button class="btd">TRANSFER<br>AMOUNT</button></a>
+             <a href="transactionhistory.jsp" class="bt"><button class="btd">VIEW<br>TRANSACTION<br>HISTORY</button></a>
+             <a href="update.html" class="bt"><button class="btd">UPDATE<br>DETAILS</button></a>
+             <a href="logout.jsp" class="bt"><button class="btd">LOGOUT</button></a>
+         </div></div></div><br><br>
+         <form name="loan" method="post" style="height: 600px;">
+              <center><b><h4>APPLY FOR PERSONAL LOAN</h4></b></center>
+            <table><tr>
+                <b><input type="number" min="100000" max="900000" name="amount" onblur="amountchk()" class="t1" placeholder="ENTER AMOUNT BETWEEN 100000-900000" required/><br><div id="damount"></div></b>
+            </tr><tr>
+            <b><input type="number" min="1" max="10" name="time" onblur="timechk()" class="t1" placeholder="ENTER NUMBER OF YEARS BETWEEN 1 TO 10 " required/><br><div id="ddur"></div><br><br></b>
+            </tr><tr>
+            <b>All the below Conditions are mandatory to apply for loan<br><br><input type="checkbox" name="sal" checked class="c1" required/>IS YOUR NET SALARY IS UPTO 20000/-<br><br></b>
+            </tr><tr>
+            <b><input type="checkbox" name="resident" checked class="c1" required/>ARE YOU AN ACTIVE RESIDENT OF THE CURRENT CITY FROM ATLEAST 1 YEAR.<br><br></b>
+            </tr><tr>
+           <b><input type="checkbox" name="work" checked class="c1" required/>IS YOUR MINIMUM WORK EXPERIENCE IS OF ATLEAST 1 YEAR.<br><br><div id="checkid"></div></b>
+            </tr>
+            <center><input type="submit" value="SUBMIT" id="button" onclick="beforeSubmit()" formaction="loan.jsp"/></center>
+                <br><br>
+                <center><input type="reset" value="CLEAR" id="button" onclick="clear()" formaction="personalloan.html"/></center>
+            </table></form>
+         <script language="Javascript">
+              function amountchk(){
+           if(!loan.amount.value.match(/^\d{6}$/)){
+ document.getElementById("damount").innerHTML="Amount should be between 100000 to 900000";
+               loan.amount.value="";
+               loan.amount.focus();}
+           else{document.getElementById("damount").innerHTML="";}}
+       function timechk(){
+    if(loan.time.value<=10){document.getElementById("ddur").innerHTML="";} 
+    else{document.getElementById("ddur").innerHTML="Period should be between 1 to 10 years";
+               loan.time.value="";
+               loan.time.focus();  }}
+               function clear(){
+                loan.amount.value="";
+                loan.time.value="";}
+            function beforeSubmit(){
+          if(loan.amount.value.length==0 || loan.time.value.lenght==0 || !loan.sal.checked() || !loan.resident.checked() || !loan.work.checked()){
+          alert("FIELDS CANNOT BE EMPTY");}}</script></body></html>
